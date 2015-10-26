@@ -14,7 +14,7 @@ defmodule WebrtcGw.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger],
+    [applications: [:logger, :porcelain],
      mod: {WebrtcGw, []}]
   end
 
@@ -28,6 +28,8 @@ defmodule WebrtcGw.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      { :porcelain, "~> 2.0" }
+    ]
   end
 end

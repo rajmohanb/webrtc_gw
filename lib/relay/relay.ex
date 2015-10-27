@@ -2,6 +2,9 @@ defmodule WebrtcGw.Relay.Relay do
   use GenServer
   require Logger
 
+  alias Porcelain.Process, as: Proc
+  alias Porcelain.Result
+
   #####
   # Client API
 

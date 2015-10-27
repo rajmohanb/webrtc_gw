@@ -25,8 +25,6 @@ defmodule WebrtcGw.Streaming.Stream do
 
   def handle_call(:start, _from, state) do
 
-    alias Porcelain.Process, as: Proc
-
     IO.puts "Entering Janus: start current state: #{inspect state}"
 
     unless state == nil do

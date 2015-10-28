@@ -36,7 +36,7 @@ defmodule WebrtcGw.Streaming.Stream do
       end
     end
 
-    proc = Porcelain.spawn("/home/rajmohan/evercam/opt/janus/bin/janus", [],[])
+    proc = Porcelain.spawn(janus_path, [],[])
     IO.puts "Hola! Janus process is #{inspect proc.pid}"
 
     { :reply, :ok, proc }
@@ -56,5 +56,10 @@ defmodule WebrtcGw.Streaming.Stream do
     end
 
     { :reply, :ok, state }
+  end
+
+  defp janus_path do
+    IO.puts "JANUS -> #{inspect Application.get_env(:webrtc_gw, :janus_path)}"
+    Application.get_env(:webrtc_gw, :janus_path)
   end
 end

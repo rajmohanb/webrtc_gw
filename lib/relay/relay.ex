@@ -36,7 +36,7 @@ defmodule WebrtcGw.Relay.Relay do
       end
     end
 
-    proc = Porcelain.spawn("/usr/local/bin/gst-launch-1.0", ["rtspsrc", "location=rtsp://admin:12345@192.168.1.100/h264/ch1/main/av_stream", "name=src", "!", "rtph264depay", "!", "queue", "!", "avdec_h264", "!", "videoconvert", "!", "videoscale", "!", "queue", "!", "vp8enc", "target-bitrate=256000", "error-resilient=true" , "!", "rtpvp8pay", "!", "udpsink", "host=127.0.0.1", "port=5004"],[])
+    proc = Porcelain.spawn(gstreamer_path, ["rtspsrc", "location=rtsp://admin:12345@192.168.1.100/h264/ch1/main/av_stream", "name=src", "!", "rtph264depay", "!", "queue", "!", "avdec_h264", "!", "videoconvert", "!", "videoscale", "!", "queue", "!", "vp8enc", "target-bitrate=256000", "error-resilient=true" , "!", "rtpvp8pay", "!", "udpsink", "host=127.0.0.1", "port=5004"],[])
     IO.puts "Hola! Gstreamer process is #{inspect proc.pid}"
 
     { :reply, :ok, proc }
@@ -60,4 +60,7 @@ defmodule WebrtcGw.Relay.Relay do
     { :reply, :ok, state }
   end
 
+  defp gstreamer_path do
+    Application.get_env(:webrtc_gw, :gst_launch_path)
+  end
 end

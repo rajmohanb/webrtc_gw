@@ -28,3 +28,8 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
+
+config :porcelain, :goon_driver_path, "/usr/bin/goon"
+config :webrtc_gw, 
+    janus_path: "/home/rajmohan/evercam/opt/janus/bin/janus",
+    gst_launch_path: "/usr/local/bin/gst-launch-1.0"

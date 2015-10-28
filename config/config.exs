@@ -31,5 +31,5 @@ use Mix.Config
 
 config :porcelain, :goon_driver_path, "/usr/bin/goon"
 config :webrtc_gw, 
-    janus_path: "/home/rajmohan/evercam/opt/janus/bin/janus",
+    janus_path: "/opt/janus/bin/janus",
     gst_launch_path: "/usr/local/bin/gst-launch-1.0"

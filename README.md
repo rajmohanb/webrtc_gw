@@ -2,7 +2,7 @@
 
 This application acts as a signaling and media gateway for forwarding video packets captured from an IP camera on local network to WebRTC endpoints over the Internet. The purpose of this gateway application is to enable IP cameras on private networks to be made accessible over Internet using the upcoming WebRTC technology.
 
-This elixir application internaly makes use of Janus for WebRTC functionality and Gstreamer for capturing packets over local network from IP camera (RTSP) as well as transcoding of the media from H264 to VP8.
+This elixir application internaly makes use of Janus for WebRTC functionality and Gstreamer for capturing packets over local network from IP camera (RTSP) as well as transcoding of the media from H264 to VP8. This elixir application is just a wrapper around Gstreamer and Janus apps and makes use of porcelain package to run these external applications.
 
 ## Installation
 
